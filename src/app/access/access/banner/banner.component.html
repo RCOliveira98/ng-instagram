@@ -1,1 +1,3 @@
-<div class="my-bg-banner"></div>
+<div class="my-bg-banner" >
+  <img *ngFor="let img of listImages" [src]="img.url" [@bannerAnimation]="img.state">
+</div>
