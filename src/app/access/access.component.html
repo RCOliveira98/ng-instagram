@@ -4,8 +4,14 @@
       <app-banner></app-banner>
     </div>
 
-    <div class="col-sm-6 d-flex justify-content-start" [@tgrLoadBox]="stateBox">
-      <app-login></app-login>
+    <div *ngIf="renderLogin; else boxRegister" class="col-sm-6 d-flex justify-content-start" [@tgrLoadBox]="stateBox">
+      <app-login (renderRegister)="captureSmokeSignal($event)"></app-login>
     </div>
+
+    <ng-template #boxRegister>
+      <div class="col-sm-6 d-flex justify-content-start" [@tgrLoadBox]="stateBox">
+        <app-register (renderLogin)="captureSmokeSignal($event)"></app-register>
+      </div>
+    </ng-template>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
+  @Output() renderLogin: EventEmitter<string> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  render() {
+    this.renderLogin.emit('LOGIN');
   }
 
 }
