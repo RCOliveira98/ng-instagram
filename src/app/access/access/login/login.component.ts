@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { RegisterService } from './../../register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private servRegister: RegisterService
+    private servRegister: RegisterService,
+    private router: Router
   ) {
     this.buildMyForm();
    }
@@ -28,7 +30,15 @@ export class LoginComponent implements OnInit {
   }
 
   public logar(): void {
-    this.servRegister.autentication(this.formLogin.controls.email.value, this.formLogin.controls.password.value);
+    this.servRegister.autentication(this.formLogin.controls.email.value, this.formLogin.controls.password.value)
+    .then(success => {
+      alert('Usuário autenticado!');
+      this.router.navigate(['home']);
+    })
+    .catch(e => {
+      alert('Usuário não autenticado!');
+      console.error(e);
+    });
   }
 
   private buildMyForm(): void {
