@@ -2,12 +2,13 @@
   <div class="card-body">
     <div class="card-title my-card-ttl"></div>
 
-    <form>
+    <form [formGroup]="formRegister" (ngSubmit)="newUser()">
       <div class="form-group">
         <input
           type="email"
           class="form-control"
           placeholder="E-mail"
+          formControlName="email"
         >
       </div>
       <div class="form-group">
@@ -15,6 +16,7 @@
           type="text"
           class="form-control"
           placeholder="Nome completo"
+          formControlName="name"
         >
       </div>
       <div class="form-group">
@@ -22,6 +24,7 @@
           type="text"
           class="form-control"
           placeholder="Nome de usuário"
+          formControlName="nameUser"
         >
       </div>
       <div class="form-group">
@@ -29,6 +32,7 @@
           type="password"
           class="form-control"
           placeholder="Senha"
+          formControlName="password"
         >
       </div>
       <button type="submit" class="btn btn-primary btn-sm btn-block">Cadastre-se</button>
@@ -44,7 +48,7 @@
   <div class="card-body">
     <p class="card-text">
       Tem uma conta?
-      <button class="btn btn-link" (click)="render()">Faça login</button>
+      <button type="submit" class="btn btn-link">Faça login</button>
     </p>
   </div>
 </div>
