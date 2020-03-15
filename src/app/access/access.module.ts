@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule} from '@angular/forms';
 
 import { AccessRoutingModule } from './access-routing.module';
@@ -23,7 +22,6 @@ import { RegisterComponent } from './access/register/register.component';
   imports: [
     CommonModule,
     AccessRoutingModule,
-    BrowserAnimationsModule,
     ReactiveFormsModule
   ],
   providers: [AccessService, RegisterService],
