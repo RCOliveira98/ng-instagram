@@ -28,4 +28,16 @@ export class RegisterService {
       console.error(`Erro register: ${error}`);
     }
   }
+
+  autentication(email: string, pwd: string): void {
+    sdkFirebase.auth().signInWithEmailAndPassword(email, pwd)
+    .then(success => {
+      console.log(success);
+      alert('Usuário autenticado com sucesso!');
+    })
+    .catch(error => {
+      console.error(`Error->autentication: ${error}`);
+      alert('Usuário não autenticado!');
+    })
+  }
 }
