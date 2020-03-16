@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { RegisterService } from './../../register.service';
+import { RegisterService } from '../../../register.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
   public logar(): void {
     this.servRegister.autentication(this.formLogin.controls.email.value, this.formLogin.controls.password.value)
     .then(success => {
+      this.servRegister.setToken();
       alert('Usuário autenticado!');
       this.router.navigate(['home']);
     })

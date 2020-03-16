@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { SentinelaGuard } from './sentinela.guard';
+
 const routes: Routes = [
   {
     path: '',
@@ -13,6 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
+    canActivate: [SentinelaGuard],
     loadChildren: () => import('./posts/posts.module')
     .then(mod => mod.PostsModule)
     .catch(errMod => {

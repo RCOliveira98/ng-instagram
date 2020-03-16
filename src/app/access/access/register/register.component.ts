@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { RegisterService } from './../../register.service';
+import { RegisterService } from '../../../register.service';
 
 import { User } from './../../../shared/user.model';
 

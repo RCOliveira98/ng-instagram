@@ -4,7 +4,7 @@ import { ReactiveFormsModule} from '@angular/forms';
 
 import { AccessRoutingModule } from './access-routing.module';
 
-import { RegisterService } from './register.service';
+import { RegisterService } from '../register.service';
 import { AccessService } from './access.service';
 
 import { AccessComponent } from './access.component';
