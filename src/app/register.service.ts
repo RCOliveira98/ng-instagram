@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 import * as sdkFirebase from 'firebase';
 
@@ -9,9 +10,7 @@ import { User } from './shared/user.model';
 })
 export class RegisterService {
 
-  private userToken: string;
-
-  constructor() { }
+  constructor(private servRouter: Router) { }
 
   register(user: User): void {
     try {
@@ -46,7 +45,15 @@ export class RegisterService {
   }
 
   exit() {
-    sessionStorage.removeItem('token');
+    sdkFirebase.auth().signOut()
+    .then(s => {
+      sessionStorage.removeItem('token');
+      this.servRouter.navigate(['']);
+    })
+    .catch(e => {
+      console.error(`exit: ${e}`);
+      alert('Falha ao encerrar sessão!');
+    });
   }
 
   verifyToken(): boolean {

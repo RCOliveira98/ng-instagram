@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { RegisterService } from './../../register.service';
 
@@ -11,8 +10,7 @@ import { RegisterService } from './../../register.service';
 export class HomeComponent implements OnInit {
 
   constructor(
-    private servRegister: RegisterService,
-    private servRouter: Router
+    private servRegister: RegisterService
   ) { }
 
   ngOnInit() {
@@ -20,7 +18,6 @@ export class HomeComponent implements OnInit {
 
   exit() {
     this.servRegister.exit();
-    this.servRouter.navigate(['']);
   }
 
 }
