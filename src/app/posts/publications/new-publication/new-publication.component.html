@@ -1,0 +1,27 @@
+<div class="modal fade" id="mdNewPublication" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+    <form [formGroup]="formNewPublication" (ngSubmit)="publication()">
+
+        <div class="modal-header">
+          <h5 class="modal-title"><fa-icon [icon]="iconInsta"></fa-icon> Nova publicação</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <input class="form-control" placeholder="Título da publicação" formControlName="title">
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="formNewPublication.invalid">Publicar</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
