@@ -2,7 +2,7 @@
   <div class="container">
     <div class="logo"></div>
     <div>
-      <div class="add-post"></div>
+      <div class="add-post" data-toggle="modal" data-target="#mdNewPublication"></div>
       <button class="btn btn-link" (click)="exit()">
         Sair
       </button>
@@ -10,7 +10,10 @@
   </div>
 </nav>
 
-<br /><br /><br />
-<div class="container">
+<div class="container mt-5">
   <app-publications></app-publications>
+</div>
+
+<div>
+  <app-new-publication></app-new-publication>
 </div>
